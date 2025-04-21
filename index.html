@@ -1,0 +1,265 @@
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kim Profile</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #fff;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            padding: rem;
+        }
+        
+        .wavy-underline {
+            text-decoration-line: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: #00c2ff;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 4px;
+        }
+        
+        .photo-container {
+            position: relative;
+            width: 288px;
+            height: 288px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+            z-index: 20;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 100px);
+            margin-top: 50px;
+        }
+        
+        .shape-circle {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #00c2ff33;
+            border-radius: 50%;
+            top: 10%;
+            left: 5%;
+            filter: blur(30px);
+            z-index: 1;
+        }
+        
+        .shape-blob {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: #ff2a0033;
+            border-radius: 40% 60% 70% 30% / 60% 30% 70% 40%;
+            bottom: 15%;
+            right: 10%;
+            filter: blur(40px);
+            z-index: 1;
+        }
+        
+        .shape-rect {
+            position: absolute;
+            width: 100px;
+            height: 140px;
+            background: #ffc43133;
+            top: 50%;
+            right: 25%;
+            transform: translateY(-50%) rotate(25deg);
+            filter: blur(20px);
+            border-radius: 20px;
+            z-index: 1;
+        }
+        
+        .shape-diamond {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            background: #00c2ff22;
+            top: 25%;
+            right: 5%;
+            transform: rotate(45deg);
+            border-radius: 15px;
+            filter: blur(18px);
+            z-index: 1;
+        }
+        
+        .shape-small-circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #ff2a0044;
+            border-radius: 50%;
+            bottom: 5%;
+            left: 10%;
+            filter: blur(15px);
+            z-index: 1;
+        }
+        
+        .shape-ellipse {
+            position: absolute;
+            width: 140px;
+            height: 70px;
+            background: #ffc43144;
+            border-radius: 70% / 50%;
+            top: 60%;
+            left: 15%;
+            filter: blur(25px);
+            z-index: 1;
+            transform: rotate(-20deg);
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(-100px);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1.2s ease forwards;
+            opacity: 0;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .page-transition.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .compact-navbar {
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+        }
+        
+        .compact-navbar .navbar-brand {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        
+        .compact-navbar .navbar-toggler {
+            padding: 0.25rem 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-transition" id="pageTransition"></div>
+    <header class="position-relative">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container-fluid px-0">
+                <a class="navbar-brand p-0" href="#">
+                    <img alt="Yellow" class="img-fluid" src="/img/LOGOHi.png" width="70" height="50" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="places.html">Places</a>
+                        <a class="nav-link" href="schedule.html">Schedule</a>
+                        <a class="nav-link" href="hoby.html">Hoby</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="position-relative text-center w-100" style="max-width: 720px;">
+            <h1 class="wavy-underline fade-in-up fs-1 fw-semibold">
+                Welcome to My Profile
+            </h1>
+
+            <div class="circle-left"></div>
+            <div class="triangle-right"></div>
+
+            <div class="shape-circle"></div>
+            <div class="shape-blob"></div>
+            <div class="shape-rect"></div>
+            <div class="shape-diamond"></div>
+            <div class="shape-small-circle"></div>
+            <div class="shape-ellipse"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const text = document.querySelector('.fade-in-up');
+            if (text) {
+                text.style.opacity = '1';
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageTransition = document.getElementById('pageTransition');
+            const links = document.querySelectorAll('a[href]');
+
+            const text = document.querySelector('.fade-in-up');
+            if (text) {
+                text.style.opacity = '1';
+            }
+
+            links.forEach(link => {
+                if (link.href.includes('#') ||
+                    link.href.startsWith('mailto:') ||
+                    link.href.startsWith('tel:') ||
+                    !link.href.startsWith(window.location.origin)) {
+                    return;
+                }
+
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetUrl = link.getAttribute('href');
+
+                    pageTransition.classList.add('active');
+
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 500);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

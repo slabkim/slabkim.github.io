@@ -1,0 +1,156 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Kim Profile</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/shape.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        main {
+            flex: 1;
+        }
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.6rem;
+            text-align: left;
+        }
+        
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .page-transition.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-black">
+    <div class="page-transition" id="pageTransition"></div>
+    <div class="shape-circle"></div>
+    <div class="shape-blob"></div>
+    <div class="shape-rect"></div>
+    <div class="shape-diamond"></div>
+    <div class="shape-small-circle"></div>
+    <div class="shape-ellipse"></div>
+
+    <header class="position-relative">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container-fluid px-0">
+                <a class="navbar-brand p-0" href="#">
+                    <img alt="Yellow" class="img-fluid" src="/img/LOGOHi.png" width="70" height="50" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link active" href="about.html">About</a>
+                        <a class="nav-link" href="places.html">Places</a>
+                        <a class="nav-link" href="schedule.html">Schedule</a>
+                        <a class="nav-link" href="hoby.html">Hoby</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container text-center position-relative" style="max-width: 900px; z-index: 20;">
+        <h1 class="fw-semibold mb-4 fs-1">
+            <span class="wavy-underline d-inline-block">Hello!</span> I'm Kim.</h1>
+        <div class="photo-container mx-auto">
+            <div class="circle-left"></div>
+            <img alt="Photo of woman wearing " class="img-fluid position-relative" src="/img/HAKIMM.png" style="z-index: 10;" width="300" />
+            <div class="triangle-right"></div>
+        </div>
+        <p class="mx-auto fw-bold mb-3" style="width: 80%;">Before I discovered my passion for technology, I was just a curious kid with an old laptop and a lot of questions.</p>
+
+        <p class="mx-auto mb-3" style="width: 80%;">
+            As a computer science student at Universitas Lampung, I’ve found joy not only in solving problems but also in understanding how those problems affect people. Whether I’m debugging a program or brainstorming ideas for a group project, I always find myself
+            drawn to the "why" just as much as the "how". Each semester brings a new challenge that reshapes how I think.
+        </p>
+
+        <p class="mx-auto mb-3" style="width: 80%;">
+            In the teams I work with, I aim to bring clarity and connection. I want everyone to feel like their voice matters, and that no idea is too small to explore. I believe great work starts with open minds—and that learning together makes everything better.
+        </p>
+
+        <p class="mx-auto mb-3" style="width: 80%;">
+            Programming became more than just code for me when I realized its power to create impact—from automating simple tasks to building something people can rely on. The more I explored tech, the more I saw its potential to improve lives. That's when I knew
+            I didn’t just want to code—I wanted to create.
+        </p>
+
+        <p class="mx-auto fw-bold mb-3" style="width: 80%;">Why software development?</p>
+
+        <p class="mx-auto mb-3" style="width: 80%;">
+            Because at its core, software is a tool for empowerment. My journey has taught me that empathy and logic go hand in hand, and that thoughtful code can solve real problems. I believe the best software comes from listening deeply, staying curious, and always
+            striving to make things better than before.
+        </p>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageTransition = document.getElementById('pageTransition');
+            const links = document.querySelectorAll('a[href]');
+
+            const text = document.querySelector('.fade-in-up');
+            if (text) {
+                text.style.opacity = '1';
+            }
+
+            links.forEach(link => {
+                if (link.href.includes('#') ||
+                    link.href.startsWith('mailto:') ||
+                    link.href.startsWith('tel:') ||
+                    !link.href.startsWith(window.location.origin)) {
+                    return;
+                }
+
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetUrl = link.getAttribute('href');
+
+                    pageTransition.classList.add('active');
+
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 500);
+                });
+            });
+        });
+    </script>
+    <script>
+        fetch('layout/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>
